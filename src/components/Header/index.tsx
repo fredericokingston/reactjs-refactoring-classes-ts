@@ -4,12 +4,12 @@ import { FiPlusSquare } from 'react-icons/fi';
 import { Container } from './styles';
 import Logo from '../../assets/logo.svg';
 
-export function Header(openModal: boolean) {
-  const [isOpenedModal, setIsOpenedModal] = useState(openModal);
+interface HeaderProps {
+  openModal: () => void;
+}
 
-  function handleOpenModal() {
-    setIsOpenedModal(!isOpenedModal)
-  }
+export function Header({ openModal }: HeaderProps) {
+
   return (
     <Container>
       <header>
@@ -18,7 +18,7 @@ export function Header(openModal: boolean) {
           <div>
             <button
               type="button"
-              onClick={handleOpenModal}
+              onClick={openModal}
             >
               <div className="text">Novo Prato</div>
               <div className="icon">
